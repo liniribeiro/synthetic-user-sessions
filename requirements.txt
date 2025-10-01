@@ -1,0 +1,6 @@
+pandas
+faker
+seaborn
+matplotlib
+networkx
+plotly
