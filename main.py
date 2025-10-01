@@ -5,7 +5,7 @@ from datetime import timedelta
 
 fake = Faker()
 
-def create_user_sessions(n_users=100, n_sessions=50000, n_events=500):
+def create_user_sessions(n_users=100, n_sessions=50000, n_events=500, n_past_days=30):
     devices = ["desktop", "mobile", "tablet"]
     browsers = ["Chrome", "Safari", "Firefox", "Edge"]
     os_list = ["Windows", "macOS", "Linux", "Android", "iOS"]
@@ -18,7 +18,7 @@ def create_user_sessions(n_users=100, n_sessions=50000, n_events=500):
     for i in range(n_events):
         user_id = random.randint(1, n_users)
         session_id = random.randint(1, n_sessions)
-        base_time = fake.date_time_between(start_date="-30d", end_date="now")
+        base_time = fake.date_time_between(start_date=f"-{n_past_days}d", end_date="now")
 
         # Fixed attributes for this session (consistency!)
         device = random.choice(devices)
@@ -99,8 +99,10 @@ if __name__ == "__main__":
     n_users = 2000
     n_events = 20000
 
+    n_past_days = 400
+
     session_per_event = n_events / n_sessions
     print(f"Generating {n_events} sessions for {n_users} users with {n_sessions} sessions, this is around {session_per_event} session per event")
-    df = create_user_sessions()
+    df = create_user_sessions(n_users, n_sessions, n_events, n_past_days)
     print(df[df["event_type"] == "purchase"].head(10))
 
