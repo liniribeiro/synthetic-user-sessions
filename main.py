@@ -35,7 +35,7 @@ def create_user_sessions(n_users=100, n_sessions=50000, n_events=500, n_past_day
 
         if has_purchase:
             # Pick ONE product for the whole funnel
-            product_id = random.choice([101, 202, 303])
+            product_id = random.choice([101, 202, 303, 404, 505, 606, 707, 808, 909])
             product_page = f"/product/{product_id}"
 
             funnel = ["view"]

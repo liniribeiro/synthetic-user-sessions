@@ -1,6 +1,8 @@
 
 # Synthetic User Sessions
 
+[Hugging Face Datasets](https://huggingface.co/datasets/liniribeiro/synthetic-user-sessions)
+
 ## Overview
 This repository contains a Python function to generate a **synthetic dataset of user sessions** for web analytics, e-commerce, and marketing analytics.  
 It simulates realistic user behavior across multiple sessions, including **views, scrolls, clicks, add-to-cart events, and purchases**, with consistent session attributes and probabilistic funnels.
